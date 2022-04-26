@@ -2,11 +2,12 @@ import 'dart:convert';
 
 import 'package:hello_world/data/weather.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class HttpHelper {
   final String authority = 'api.openweathermap.org';
   final String path = 'data/2.5/weather';
-  final String apiKey = '24269717d11416363eaeae9d3a1d9a63';
+  final String? apiKey = dotenv.env['WEATHER_API_KEY'];
 
   Future<Weather> getWeather(String location) async {
     Map<String, dynamic> parameters = {'q': location, 'appId': apiKey};

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hello_world/screens/bmi_screen.dart';
 import 'package:hello_world/screens/sessions_screen.dart';
 import 'package:hello_world/screens/weather_screen.dart';
 import 'screens/intro_screen.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const GlobeApp());
 }
 
